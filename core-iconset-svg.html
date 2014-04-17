@@ -81,6 +81,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
+      get iconNames() {
+        var icons = this.querySelectorAll('[id]').array();
+        return icons.map(function(n){ return n.id });
+      },
+
       /**
        * Applies an icon to the given element. The svg icon is added to the
        * element's shadowRoot if one exists or directly to itself.
