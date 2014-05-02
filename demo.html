@@ -33,7 +33,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin-bottom: 100px;
       border-bottom: 1px solid black;
       display: flex;
+      display: -webkit-flex;
       flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
     }
 
     .set:nth-of-type(4n-3) {
@@ -58,9 +60,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .container {
       flex: 0 0 10em;
+      -webkit-flex: 0 0 10em;
       display: inline-flex;
+      display: -webkit-inline-flex;
       flex-flow: column;
+      -webkit-flex-flow: column;
       align-items: center;
+      -webkit-align-items: center;
       padding: 20px;
       font-size: 13px;
     }
