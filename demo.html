@@ -24,33 +24,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       -webkit-filter: drop-shadow( 1px 1px 1px #333 );
       filter: drop-shadow( 1px 1px 1px #333 );
     }
+
     h2 {
       text-transform: capitalize;
     }
+
     .set {
-      margin: 100px 0;
+      margin-bottom: 100px;
       border-bottom: 1px solid black;
     }
-    .set:nth-of-type(4n-3) svg-icon-demo::shadow > svg:not(rect) {
+
+    .set:nth-of-type(4n-3) {
       fill: #D23F31;
     }
-    .set:nth-of-type(4n-2) svg-icon-demo::shadow > svg:not(rect) {
+
+    .set:nth-of-type(4n-2) {
       fill: #FDD835;
     }
-    .set:nth-of-type(4n-1) svg-icon-demo::shadow > svg:not(rect) {
+
+    .set:nth-of-type(4n-1) {
       fill: #0D904F;
     }
-    .set:nth-of-type(4n) svg-icon-demo::shadow > svg:not(rect) {
+
+    .set:nth-of-type(4n) {
       fill: #3B78E7;
     }
+
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial;
+    }
+
+    .container {
+      display: inline-flex;
+      flex-flow: column;
+      align-items: center;
+      padding: 20px;
     }
   </style>
 </head>
 <body unresolved>
 
-  <!-- 
+  <!--
     Create an element that uses an iconset to display an icon.
     By using iconset, the element can allow the set of available icons to be
     easily changed by the user.
@@ -101,7 +115,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="set">
         <h2>{{set}}</h2>
         <template repeat="{{ icon in icons }}">
-          <svg-icon-demo icon="{{ set }}:{{ icon }}"></svg-icon-demo>
+          <span class="container">
+            <svg-icon-demo icon="{{ set }}:{{ icon }}"></svg-icon-demo>
+            <div>{{ icon }}</div>
+          </span>
         </template>
       </div>
     </template>
