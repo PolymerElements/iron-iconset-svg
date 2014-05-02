@@ -32,6 +32,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .set {
       margin-bottom: 100px;
       border-bottom: 1px solid black;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .set:nth-of-type(4n-3) {
@@ -55,10 +57,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .container {
+      flex: 0 0 10em;
       display: inline-flex;
       flex-flow: column;
       align-items: center;
       padding: 20px;
+      font-size: 13px;
     }
   </style>
 </head>
@@ -112,8 +116,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Now some icons using our iconset -->
   <div id="demo">
     <template repeat="{{ }}">
+      <h2>{{set}}</h2>
       <div class="set">
-        <h2>{{set}}</h2>
         <template repeat="{{ icon in icons }}">
           <span class="container">
             <svg-icon-demo icon="{{ set }}:{{ icon }}"></svg-icon-demo>
