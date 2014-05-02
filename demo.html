@@ -13,36 +13,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <title>core-iconset-svg</title>
   <script src="../platform/platform.js"></script>
-  <link rel="import" href="core-iconset-svg.html">
-  <link rel="import" href="svg-sample-icons.html">
-  <link rel="import" href="navigation-icons.html">
-  <link rel="import" href="social-icons.html">
+  <link rel="import" href="core-icons.html">
   <style shim-shadowdom>
-    #icon1::shadow {
-      fill: orange;
+    svg-icon-demo {
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s;
     }
 
-    #icon2::shadow {
-      fill: green;
-      stroke: orange;
+    svg-icon-demo:hover {
+      -webkit-filter: drop-shadow( 1px 1px 1px #333 );
+      filter: drop-shadow( 1px 1px 1px #333 );
     }
-
-    #icon3::shadow {
-      fill: navy;
+    h2 {
+      text-transform: capitalize;
     }
-
-    #icon3:hover::shadow {
-      fill: orange;
+    .set {
+      margin: 100px 0;
+      border-bottom: 1px solid black;
     }
-
-    svg-icon-demo::shadow {
-      transition: all 0.5s;
-      -webkit-transition: all 0.5s;
+    .set:nth-of-type(4n-3) svg-icon-demo::shadow > svg:not(rect) {
+      fill: #D23F31;
     }
-
-    svg-icon-demo:hover::shadow {
-      -webkit-filter: drop-shadow( 2px 2px 2px #333 );
-      filter: drop-shadow( 2px 2px 2px #333 );
+    .set:nth-of-type(4n-2) svg-icon-demo::shadow > svg:not(rect) {
+      fill: #FDD835;
+    }
+    .set:nth-of-type(4n-1) svg-icon-demo::shadow > svg:not(rect) {
+      fill: #0D904F;
+    }
+    .set:nth-of-type(4n) svg-icon-demo::shadow > svg:not(rect) {
+      fill: #3B78E7;
+    }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial;
     }
   </style>
 </head>
@@ -72,7 +74,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script>
 
       Polymer('svg-icon-demo', {
-        
         size: 24,
         iconChanged: function() {
           if (!this.icon) {
@@ -95,21 +96,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </polymer-element>
 
   <!-- Now some icons using our iconset -->
-  <div>
-    <template repeat="{{}}">
-      <svg-icon-demo icon="{{}}"></svg-icon-demo>
+  <div id="demo">
+    <template repeat="{{ }}">
+      <div class="set">
+        <h2>{{set}}</h2>
+        <template repeat="{{ icon in icons }}">
+          <svg-icon-demo icon="{{ set }}:{{ icon }}"></svg-icon-demo>
+        </template>
+      </div>
     </template>
   </div>
-  <svg-icon-demo icon="social:favorite"></svg-icon-demo>
+
   <core-meta id="meta" type="iconset"></core-meta>
   <script>
     addEventListener('polymer-ready', function() {
-      var icons = document.querySelector('#meta').byId('navigation').iconNames;
-      icons = icons.map(function(ic){ return 'navigation:' + ic });
-      var plates = document.querySelectorAll('template');
-      for (var i = 0, p; p = plates[i]; i++) {
-        p.model = icons;
-      }
+      var meta = document.querySelector('#meta')
+      var template = document.querySelector('#demo > template');
+      var iconsets = meta.metaArray;
+      var model = iconsets.map(function(ic) {
+        return {set: ic.id, icons: ic.iconNames};
+      });
+      template.model = model;
+      template.bindingDelegate = new PolymerExpressions();
     });
   </script>
 </body>
