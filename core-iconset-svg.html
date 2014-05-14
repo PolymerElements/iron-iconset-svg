@@ -107,8 +107,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // install new
         var svg = this.cloneIcon(icon);
+        svg.style.height = svg.style.width = this.iconSize + 'px';
+        svg.style.verticalAlign = 'middle';
         if (svg) {
-          root.appendChild(svg);
+          root.insertBefore(svg, root.firstElementChild);
         }
       }
     });
