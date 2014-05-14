@@ -85,8 +85,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       get iconNames() {
+        if (!this._iconNames) {
+          this._iconNames = this.findIconNames();
+        }
+        return this._iconNames;
+      },
+
+      findIconNames: function() {
         var icons = this.querySelectorAll('[id]').array();
-        return icons.map(function(n){ return n.id });
+        if (icons.length) {
+          return icons.map(function(n){ return n.id });
+        }
       },
 
       /**
