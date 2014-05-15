@@ -116,6 +116,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // install new
         var svg = this.cloneIcon(icon);
+        if (!svg) {
+          return;
+        }
         svg.style.height = svg.style.width = this.iconSize + 'px';
         svg.style.verticalAlign = 'middle';
         if (svg) {
