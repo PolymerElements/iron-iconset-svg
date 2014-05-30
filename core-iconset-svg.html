@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * applied.
        * @param {String|Number} icon The name the icon to apply.
        */
-      applyIcon: function(element, icon) {
+      applyIcon: function(element, icon, scale) {
         var root = element.shadowRoot || element;
         // remove old
         var old = root.querySelector('svg');
@@ -119,7 +119,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (!svg) {
           return;
         }
-        svg.style.height = svg.style.width = this.iconSize + 'px';
+        svg.style.height = svg.style.width = (scale * this.iconSize) + 'px';
         svg.style.verticalAlign = 'middle';
         if (svg) {
           root.insertBefore(svg, root.firstElementChild);
