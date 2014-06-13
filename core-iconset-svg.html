@@ -119,8 +119,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (!svg) {
           return;
         }
-        svg.style.height = svg.style.width = (scale * this.iconSize) + 'px';
-        svg.style.display = 'block'
+        var size = scale * this.iconSize;
+        if (size) {
+          svg.style.height = svg.style.width = size + 'px';
+        }
+        svg.style.display = 'block';
         root.insertBefore(svg, root.firstElementChild);
       }
     });
