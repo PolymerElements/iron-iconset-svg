@@ -66,6 +66,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       iconSize: 24,
       type: 'iconset',
 
+      ready: function() {
+        this.super();
+        this.updateIcons();
+      },
+
       iconById: function(id) {
         return this.querySelector('#' + id);
       },
@@ -129,7 +134,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         svg.style.display = 'block';
         root.insertBefore(svg, root.firstElementChild);
+      },
+      
+      /**
+       * Tell users of the iconset, that the set has loaded.
+       * This finds all elements matching the selector argument and calls 
+       * the method argument on them.
+       * @method updateIcons
+       * @param selector {string} css selector to identify iconset users, 
+       * defaults to '[icon]'
+       * @param method {string} method to call on found elements, 
+       * defaults to 'updateIcon'
+       */
+      updateIcons: function(selector, method) {
+        selector = selector || '[icon]';
+        method = method || 'updateIcon';
+        var deep = window.ShadowDOMPolyfill ? '' : 'html /deep/ ';
+        var i$ = document.querySelectorAll(deep + selector);
+        for (var i=0, e; e=i$[i]; i++) {
+          if (e[method]) {
+            e[method].call(e);
+          }
+        }
       }
+      
+
     });
 
   </script>
