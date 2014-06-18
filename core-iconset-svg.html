@@ -66,13 +66,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       iconSize: 24,
       type: 'iconset',
 
+      created: function() {
+        this._icons = {};
+      },
+
       ready: function() {
         this.super();
         this.updateIcons();
       },
 
       iconById: function(id) {
-        return this.querySelector('#' + id);
+        return this._icons[id] || (this._icons[id] = this.querySelector('#' + id));
       },
 
       cloneIcon: function(id) {
