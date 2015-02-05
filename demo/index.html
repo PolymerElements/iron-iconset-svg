@@ -12,10 +12,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <head>
 
   <title>core-iconset-svg</title>
-  <script src="../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
   <link rel="import" href="svg-sample-icons.html">
   <style shim-shadowdom>
-    .embiggen core-icon {
+    core-icon {
       height: 128px;
       width: 128px;
     }
@@ -44,23 +44,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   </style>
 </head>
-<body unresolved>
+<body>
 
-  <template is="auto-binding">
-    <div class="embiggen">
-      <template repeat="{{icon in icons}}">
-        <core-icon icon="{{icon}}"></core-icon>
-      </template>
-    </div>
-    <core-meta id="meta" type="iconset"></core-meta>
-  </template>
-  <script>
-    addEventListener('template-bound', function(e) {
-      var template = e.target;
-      var setName = 'svg-sample-icons';
-      var icons = template.$.meta.byId(setName).iconNames;
-      template.icons = icons.map(function(ic){ return setName + ':' +ic });
-    });
-  </script>
+  <core-icon icon="svg-sample-icons:codepen"></core-icon>
+  <core-icon icon="svg-sample-icons:twitter"></core-icon>
+  <core-icon icon="svg-sample-icons:youtube"></core-icon>
+
 </body>
 </html>
