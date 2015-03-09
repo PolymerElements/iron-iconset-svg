@@ -17,23 +17,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../simple-fixture/simple-fixture-mocha.js"></script>
+  <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
   <link rel="import" href="../core-iconset-svg.html">
   <link rel="import" href="../../core-meta/core-meta.html">
-  <link rel="import" href="../../simple-fixture/simple-fixture.html">
+  <link rel="import" href="../../test-fixture/test-fixture.html">
 
 </head>
 <body>
 
-  <simple-fixture id="TrivialIconsetSvg">
+  <test-fixture id="TrivialIconsetSvg">
     <template>
       <core-iconset-svg name="foo"></core-iconset-svg>
       <core-meta type="iconset"></core-meta>
     </template>
-  </simple-fixture>
+  </test-fixture>
 
-  <simple-fixture id="StandardIconsetSvg">
+  <test-fixture id="StandardIconsetSvg">
     <template>
       <core-iconset-svg name="my-icons" size="20">
         <svg>
@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </core-iconset-svg>
       <div></div>
     </template>
-  </simple-fixture>
+  </test-fixture>
 
   <script>
 suite('<core-iconset>', function () {

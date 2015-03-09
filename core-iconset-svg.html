@@ -62,7 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   Polymer({
     is: 'core-iconset-svg',
 
-    published: {
+    properties: {
       /**
        * The name of the iconset.
        *
@@ -70,7 +70,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @type string
        * @default ''
        */
-      name: String,
+      name: {
+        type: String,
+        value: ''
+      },
 
       /**
        * The size of an individual icon. Note that icons must be square.
@@ -79,7 +82,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @type number
        * @default 24
        */
-      size: Number,
+      size: {
+        type: Number,
+        value: 24
+      },
 
       /**
        * TODO(cdata): Remove this when 0.8 has appropriate binding support.
@@ -87,17 +93,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       self: {
         type: Object,
-        readOnly: true
-      }
-    },
+        value: function() {
+          return this;
+        }
+      },
 
-    configure: function () {
-      return {
-        name: '',
-        size: 24,
-        icons: {},
-        self: this
-      };
+      icons: {
+        value: function() {
+          return {};
+        }
+      }
     },
 
     get iconViewBox () {
@@ -105,21 +110,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     get iconNames () {
-      return this.lightDom.querySelectorAll('[id]')
-        .map(function (icon) {
+      return Polymer.dom.querySelectorAll('[id]', this)
+        .map(function(icon) {
           return icon.id;
         });
     },
 
-    iconById: function (id) {
+    iconById: function(id) {
       if (!this.icons[id]) {
-        this.icons[id] = this.lightDom.querySelector('[id="' + id + '"]');
+        this.icons[id] = Polymer.dom.querySelector('[id="' + id + '"]', this);
       }
 
       return this.icons[id];
     },
 
-    cloneIcon: function (id) {
+    cloneIcon: function(id) {
       var icon = this.iconById(id);
       var content;
       var svg;
@@ -153,11 +158,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Element} The icon element
      */
     applyIcon: function(element, icon) {
-      var oldSvg = element.querySelector('svg');
+      var oldSvg = Polymer.dom.querySelector('svg', element);
       var svg;
 
       // Remove the old SVG..
       if (oldSvg) {
+        Polymer.dom.removeChild(oldSvg, element);
         oldSvg.remove();
       }
 
@@ -170,7 +176,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
 
-      element.insertBefore(svg, element.firstElementChild);
+      Polymer.dom.insertBefore(svg, Polymer.dom.childNodes(element)[0], element);
+      //element.insertBefore(svg, element.firstElementChild);
 
       return svg;
     }
