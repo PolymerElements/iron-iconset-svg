@@ -110,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     get iconNames () {
-      return Polymer.dom.querySelectorAll('[id]', this)
+      return Polymer.dom(this).querySelectorAll('[id]')
         .map(function(icon) {
           return icon.id;
         });
@@ -118,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     iconById: function(id) {
       if (!this.icons[id]) {
-        this.icons[id] = Polymer.dom.querySelector('[id="' + id + '"]', this);
+        this.icons[id] = Polymer.dom(this).querySelector('[id="' + id + '"]');
       }
 
       return this.icons[id];
@@ -158,12 +158,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Element} The icon element
      */
     applyIcon: function(element, icon) {
-      var oldSvg = Polymer.dom.querySelector('svg', element);
+      var oldSvg = Polymer.dom(element).querySelector('svg');
       var svg;
 
       // Remove the old SVG..
       if (oldSvg) {
-        Polymer.dom.removeChild(oldSvg, element);
+        Polymer.dom(element).removeChild(oldSvg);
         oldSvg.remove();
       }
 
@@ -176,8 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
 
-      Polymer.dom.insertBefore(svg, Polymer.dom.childNodes(element)[0], element);
-      //element.insertBefore(svg, element.firstElementChild);
+      Polymer.dom(element).insertBefore(svg, Polymer.dom(element).childNodes[0]);
 
       return svg;
     }
