@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <title>core-iconset-svg</title>
+  <title>iron-iconset-svg</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,8 +19,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="../../web-component-tester/browser.js"></script>
   <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
-  <link rel="import" href="../core-iconset-svg.html">
-  <link rel="import" href="../../core-meta/core-meta.html">
+  <link rel="import" href="../iron-iconset-svg.html">
+  <link rel="import" href="../../iron-meta/iron-meta.html">
   <link rel="import" href="../../test-fixture/test-fixture.html">
 
 </head>
@@ -28,27 +28,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <test-fixture id="TrivialIconsetSvg">
     <template>
-      <core-iconset-svg name="foo"></core-iconset-svg>
-      <core-meta type="iconset"></core-meta>
+      <iron-iconset-svg name="foo"></iron-iconset-svg>
+      <iron-meta type="iconset"></iron-meta>
     </template>
   </test-fixture>
 
   <test-fixture id="StandardIconsetSvg">
     <template>
-      <core-iconset-svg name="my-icons" size="20">
+      <iron-iconset-svg name="my-icons" size="20">
         <svg>
           <defs>
             <circle id="circle" cx="20" cy="20" r="10"></circle>
             <rect id="square" x="0" y="0" width="20" height="20"></rect>
           </defs>
         </svg>
-      </core-iconset-svg>
+      </iron-iconset-svg>
       <div></div>
     </template>
   </test-fixture>
 
   <script>
-suite('<core-iconset>', function () {
+suite('<iron-iconset>', function () {
   suite('basic behavior', function () {
     var iconset;
     var meta;
@@ -60,7 +60,7 @@ suite('<core-iconset>', function () {
       meta = elements[1];
     });
 
-    test('it can be accessed via core-meta', function () {
+    test('it can be accessed via iron-meta', function () {
       expect(meta.byKey('foo')).to.be.equal(iconset);
     });
   });
@@ -85,14 +85,16 @@ suite('<core-iconset>', function () {
     });
 
     test('can be queried for all available icons', function () {
-      expect(iconset.iconNames).to.deep.eql(['circle', 'square']);
+      expect(iconset.iconNames).to.deep.eql(['my-icons:circle', 'my-icons:square']);
     });
 
     test('supports any icon defined in the svg', function () {
       var lastSvgIcon;
 
       iconset.iconNames.forEach(function (iconName) {
-        iconset.applyIcon(div, iconName);
+        // TODO(cdata): Ask Scott about why iconNames include their
+        // iconset name.
+        iconset.applyIcon(div, iconName.split(':').pop());
 
         expect(div.firstElementChild).to.not.be.eql(lastSvgIcon);
 
