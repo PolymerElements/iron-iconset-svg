@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @method applyIcon
      * @param {Element} element Element to which the icon is applied.
-     * @param {String} icon Name of the icon to apply.
+     * @param {string} iconName Name of the icon to apply.
      * @return {Element} The svg element which renders the icon.
      */
     applyIcon: function(element, iconName) {
@@ -114,6 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         pde.insertBefore(svg, pde.childNodes[0]);
         return element._svgIcon = svg;
       }
+      return null;
     },
 
     /**
