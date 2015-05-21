@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @method applyIcon
      * @param {Element} element Element to which the icon is applied.
-     * @param {String} icon Name of the icon to apply.
+     * @param {string} iconName Name of the icon to apply.
      * @return {Element} The svg element which renders the icon.
      */
     applyIcon: function(element, iconName) {
@@ -114,6 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         pde.insertBefore(svg, pde.childNodes[0]);
         return element._svgIcon = svg;
       }
+      return null;
     },
 
     /**
@@ -146,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /**
      * Array of all icon names in this iconset.
      *
-     * @return {Array} Array of icon names.
+     * @return {!Array} Array of icon names.
      */
     _getIconNames: function() {
        return Object.keys(this._icons).map(function(n) {
@@ -175,13 +176,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Produce installable clone of the SVG element matching `id` in this
      * iconset, or `undefined` if there is no matching element.
      *
-     * @return {Object} Returns an installable clone of the SVG element
+     * @return {Element} Returns an installable clone of the SVG element
      * matching `id`.
      */
     _cloneIcon: function(id) {
       return this._prepareSvgClone(this._icons[id], this.size);
     },
 
+    /**
+     * @param {Element} sourceSvg
+     * @param {number} size
+     * @return {Element}
+     */
     _prepareSvgClone: function(sourceSvg, size) {
       if (sourceSvg) {
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -193,6 +199,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         svg.appendChild(sourceSvg.cloneNode(true)).removeAttribute('id');
         return svg;
       }
+      return null;
     }
 
   });
