@@ -5,6 +5,11 @@
   "authors": [
     "The Polymer Authors"
   ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "icon"
+  ],
   "dependencies": {
     "polymer": "polymer/polymer#^0.9.0",
     "iron-meta": "polymerelements/iron-meta#^0.9.0"
