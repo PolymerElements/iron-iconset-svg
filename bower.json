@@ -1,6 +1,12 @@
 {
   "name": "iron-iconset-svg",
-  "version": "1.0.0",
+  "description": "Manages a set of svg icons",
+  "version": "1.0.1",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "icon"
+  ],
   "license": "http://polymer.github.io/LICENSE.txt",
   "private": true,
   "authors": [
