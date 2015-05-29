@@ -17,6 +17,7 @@
     "iron-meta": "polymerelements/iron-meta#^1.0.0"
   },
   "devDependencies": {
+    "paper-styles": "polymerelements/paper-styles#^1.0.2",
     "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
     "iron-icon": "polymerelements/iron-icon#^1.0.0",
     "test-fixture": "polymerelements/test-fixture#^1.0.0",
