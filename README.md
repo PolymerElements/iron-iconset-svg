@@ -32,8 +32,8 @@ Example:
       <svg>
         <defs>
           <g id="shape">
-            <rect x="50" y="50" width="50" height="50" />
-            <circle cx="50" cy="50" r="50" />
+            <rect x="12" y="0" width="12" height="24" />
+            <circle cx="12" cy="12" r="12" />
           </g>
         </defs>
       </svg>
