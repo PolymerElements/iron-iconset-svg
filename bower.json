@@ -29,5 +29,6 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "web-component-tester": "*"
   },
-  "main": "iron-iconset-svg.html"
+  "main": "iron-iconset-svg.html",
+  "ignore": []
 }
