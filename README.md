@@ -12,9 +12,9 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 -->
 
-[![Build Status](https://travis-ci.org/PolymerElements/iron-iconset-svg.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-iconset-svg)
+[![Build status](https://travis-ci.org/PolymerElements/iron-iconset-svg.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-iconset-svg)
 
-_[Demo and API Docs](https://elements.polymer-project.org/elements/iron-iconset-svg)_
+_[Demo and API docs](https://elements.polymer-project.org/elements/iron-iconset-svg)_
 
 
 ##&lt;iron-iconset-svg&gt;
