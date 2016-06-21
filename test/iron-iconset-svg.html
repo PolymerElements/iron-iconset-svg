@@ -135,6 +135,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           expect(div.firstElementChild.getAttribute('viewBox')).to.be.equal('0 0 20 20');
         });
 
+        test('prevents SVG from receiving a tab stop in IE/Edge', function() {
+            iconset.applyIcon(div, 'rect');
+            expect(div.firstElementChild.getAttribute('focusable')).to.be.equal('false');
+        });
+
       });
 
     });
