@@ -66,6 +66,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       size: {
         type: Number,
         value: 24
+      },
+      /**
+       * The position in the X axis inside the viewbox.
+       */
+      positionX: {
+        type: Number,
+        value: 0
+      },
+      /**
+       * The position in the Y axis inside the viewbox.
+       */
+      positionY: {
+        type: Number,
+        value: 0
       }
 
     },
@@ -166,19 +180,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // create the icon map on-demand, since the iconset itself has no discrete
       // signal to know when it's children are fully parsed
       this._icons = this._icons || this._createIconMap();
-      return this._prepareSvgClone(this._icons[id], this.size);
+      return this._prepareSvgClone(this._icons[id], this.positionX, this.positionY this.size);
     },
 
     /**
      * @param {Element} sourceSvg
+     * @param {number} positionX
+     * @param {number} positionY
      * @param {number} size
      * @return {Element}
      */
-    _prepareSvgClone: function(sourceSvg, size) {
+    _prepareSvgClone: function(sourceSvg, positionX, positionY, size) {
       if (sourceSvg) {
         var content = sourceSvg.cloneNode(true),
             svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-            viewBox = content.getAttribute('viewBox') || '0 0 ' + size + ' ' + size;
+            viewBox = content.getAttribute('viewBox') || positionX + ' ' + positionY + ' ' + size + ' ' + size;
         svg.setAttribute('viewBox', viewBox);
         svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
         // TODO(dfreedm): `pointer-events: none` works around https://crbug.com/370136
