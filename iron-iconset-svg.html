@@ -180,7 +180,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // create the icon map on-demand, since the iconset itself has no discrete
       // signal to know when it's children are fully parsed
       this._icons = this._icons || this._createIconMap();
-      return this._prepareSvgClone(this._icons[id], this.positionX, this.positionY this.size);
+      return this._prepareSvgClone(this._icons[id], this.positionX, this.positionY, this.size);
     },
 
     /**
