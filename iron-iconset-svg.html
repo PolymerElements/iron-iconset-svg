@@ -232,8 +232,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           cssText += '-webkit-transform:scale(-1,1);transform:scale(-1,1);';
         }
 
-        svg.setAttribute('viewBox', viewBox);
-        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svg.setAttributeNS(null, 'viewBox', viewBox);
+        svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
+
         // TODO(dfreedm): `pointer-events: none` works around https://crbug.com/370136
         // TODO(sjmiles): inline style may not be ideal, but avoids requiring a shadow-root
         svg.style.cssText = cssText;
