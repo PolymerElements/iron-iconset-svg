@@ -79,7 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _targetIsRTL(target) {
+    _targetIsRTL: function(target) {
       if (target && target.nodeType !== Node.ELEMENT_NODE) {
         target = target.host;
       }
@@ -201,7 +201,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             cssText = 'pointer-events: none; display: block; width: 100%; height: 100%;';
 
         if (mirrorAllowed && content.hasAttribute('mirror-in-rtl')) {
-          cssText += 'transform:scale(-1,1);';
+          cssText += '-webkit-transform:scale(-1,1);transform:scale(-1,1);';
         }
 
         svg.setAttribute('viewBox', viewBox);
