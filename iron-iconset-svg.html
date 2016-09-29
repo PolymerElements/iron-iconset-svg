@@ -122,14 +122,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     applyIcon: function(element, iconName) {
       // insert svg element into shadow root, if it exists
-      element = element.root || element;
+      var iconParent = element.root || element;
       // Remove old svg element
       this.removeIcon(element);
       // install new svg element
       var svg = this._cloneIcon(iconName,
           this.rtlMirroring && this._targetIsRTL(element));
       if (svg) {
-        var pde = Polymer.dom(element);
+        var pde = Polymer.dom(iconParent);
         pde.insertBefore(svg, pde.childNodes[0]);
         return element._svgIcon = svg;
       }
@@ -146,7 +146,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Remove old svg element
       element = element.root || element;
       if (element._svgIcon) {
-        Polymer.dom(element).removeChild(element._svgIcon);
+        Polymer.dom(element.root || element).removeChild(element._svgIcon);
         element._svgIcon = null;
       }
     },
