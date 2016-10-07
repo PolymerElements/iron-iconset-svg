@@ -195,20 +195,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         test('be able to remove an iconset from a standard DOM element', function () {
           iconset.applyIcon(div, 'circle');
-          Polymer.dom.flush()
+          Polymer.dom.flush();
           expect(div.children.length).to.be.equal(1);
           iconset.removeIcon(div);
-          Polymer.dom.flush()
+          Polymer.dom.flush();
           expect(div.children.length).to.be.equal(0);
         });
 
         test('be able to remove an iconset from a Polymer element', function () {
           var baseLength = Polymer.dom(ironIcon.root).children.length;
           iconset.applyIcon(ironIcon, 'circle');
-          Polymer.dom.flush()
+          Polymer.dom.flush();
           expect(Polymer.dom(ironIcon.root).children.length - baseLength).to.be.equal(1);
           iconset.removeIcon(ironIcon);
-          Polymer.dom.flush()
+          Polymer.dom.flush();
           expect(Polymer.dom(ironIcon.root).children.length - baseLength).to.be.equal(0);
         });
 
