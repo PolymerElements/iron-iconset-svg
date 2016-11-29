@@ -16,6 +16,7 @@
     "type": "git",
     "url": "git://github.com/PolymerElements/iron-iconset-svg.git"
   },
+  "ignore": [],
   "dependencies": {
     "polymer": "polymer/polymer#^1.0.0",
     "iron-meta": "polymerelements/iron-meta#^1.0.0"
