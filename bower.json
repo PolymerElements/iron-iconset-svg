@@ -16,6 +16,8 @@
     "type": "git",
     "url": "git://github.com/PolymerElements/iron-iconset-svg.git"
   },
+  "main": "iron-iconset-svg.html",
+  "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#2.0-preview",
     "iron-meta": "PolymerElements/iron-meta#2.0-preview"
@@ -24,10 +26,8 @@
     "paper-styles": "PolymerElements/paper-styles#2.0-preview",
     "iron-component-page": "polymerelements/iron-component-page#2.0-preview",
     "iron-icon": "PolymerElements/iron-icon#2.0-preview",
-    "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
-    "test-fixture": "PolymerElements/test-fixture#^2.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#v1",
-    "web-component-tester": "v6.0.0-prerelease.5"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.1",
+    "web-component-tester": "^6.0.0-prerelease.6"
   },
   "variants": {
     "1.x": {
@@ -40,21 +40,9 @@
         "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
         "iron-icon": "polymerelements/iron-icon#^1.0.0",
         "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
-        "test-fixture": "polymerelements/test-fixture#^1.0.0",
         "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
         "web-component-tester": "^4.0.0"
       }
     }
-  },
-  "main": "iron-iconset-svg.html",
-  "ignore": [],
-  "resolutions": {
-    "iron-meta": "2.0-preview",
-    "iron-icon": "2.0-preview",
-    "iron-flex-layout": "2.0-preview",
-    "webcomponentsjs": "v1",
-    "test-fixture": "^2.0.0",
-    "polymer": "2.0-preview",
-    "paper-styles": "2.0-preview"
   }
 }
