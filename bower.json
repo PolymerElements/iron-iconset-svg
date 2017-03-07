@@ -19,7 +19,7 @@
   "main": "iron-iconset-svg.html",
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#2.0-preview",
+    "polymer": "Polymer/polymer#^2.0.0-rc.1",
     "iron-meta": "PolymerElements/iron-meta#2.0-preview"
   },
   "devDependencies": {
