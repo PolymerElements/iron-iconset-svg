@@ -134,8 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Remove old svg element
       this.removeIcon(element);
       // install new svg element
-      var svg = this._cloneIcon(iconName,
-          this.rtlMirroring && this._targetIsRTL(element));
+      var svg = this._cloneIcon(iconName, element);
       if (svg) {
         // insert svg element into shadow root, if it exists
         var pde = Polymer.dom(element.root || element);
@@ -225,27 +224,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Element} Returns an installable clone of the SVG element
      * matching `id`.
      */
-    _cloneIcon: function(id, mirrorAllowed) {
+    _cloneIcon: function(id, target) {
       // create the icon map on-demand, since the iconset itself has no discrete
       // signal to know when it's children are fully parsed
       this._icons = this._icons || this._createIconMap();
-      return this._prepareSvgClone(this._icons[id], this.size, mirrorAllowed);
+      return this._prepareSvgClone(this._icons[id], this.size, target);
     },
 
     /**
      * @param {Element} sourceSvg
      * @param {number} size
-     * @param {Boolean} mirrorAllowed
+     * @param {Element} target
      * @return {Element}
      */
-    _prepareSvgClone: function(sourceSvg, size, mirrorAllowed) {
+    _prepareSvgClone: function(sourceSvg, size, target) {
       if (sourceSvg) {
         var content = sourceSvg.cloneNode(true),
             svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             viewBox = content.getAttribute('viewBox') || '0 0 ' + size + ' ' + size,
             cssText = 'pointer-events: none; display: block; width: 100%; height: 100%;';
 
-        if (mirrorAllowed && content.hasAttribute('mirror-in-rtl')) {
+        if (this.rtlMirroring && content.hasAttribute('mirror-in-rtl') && this._targetIsRTL(target)) {
           cssText += '-webkit-transform:scale(-1,1);transform:scale(-1,1);';
         }
 
