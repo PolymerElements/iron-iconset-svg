@@ -254,7 +254,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         svg.setAttribute('focusable', 'false');
         // TODO(dfreedm): `pointer-events: none` works around https://crbug.com/370136
         // TODO(sjmiles): inline style may not be ideal, but avoids requiring a shadow-root
-        svg.style.cssText = cssText;
+
+        // check if style exists,
+        // in tor browsers high security settings the svg parser is disabled
+        // and the declaration fails
+        if (svg.style) {
+          svg.style.cssText = cssText;
+        }
         svg.appendChild(content).removeAttribute('id');
         return svg;
       }
