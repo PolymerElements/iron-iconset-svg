@@ -88,6 +88,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
   </test-fixture>
 
+  <test-fixture id="ImportIconsetSvg">
+    <template>
+      <iron-icon icon="imported-icons:rect"></iron-icon>
+    </template>
+  </test-fixture>
+
   <script>
 
 
@@ -280,6 +286,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       });
 
+    });
+
+    suite('Late-loading iconset', function () {
+      var icon;
+      var fired;
+
+      setup(function () {
+        icon = fixture('ImportIconsetSvg');
+        fired = false;
+        window.addEventListener('iron-iconset-added', function(ev) {
+          if (ev.detail.name === 'imported-icons') {
+            fired = true;
+          }
+        });
+      });
+
+      test('icons appear after iconset is loaded.', function (done) {
+        var children = Polymer.dom(icon.root).querySelectorAll('img,svg');
+        expect(children.length).to.be.eql(0);
+        icon.importHref('imported.html', function () {
+          flush(function () {
+            if (!fired) {
+              // In Chrome with wc-shadydom=true&wc-ce=true importHref has no effect on
+              // already-loaded custom elements.
+              done();
+              return;
+            }
+            children = Polymer.dom(icon.root).querySelectorAll('img,svg');
+            expect(children.length).to.be.eql(1);
+            done();
+          });
+        });
+      });
     });
 
   </script>
