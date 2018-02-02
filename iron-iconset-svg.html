@@ -196,7 +196,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._meta.key = this.name;
       this._meta.value = this;
 
-      this.async(function() {
+      // Give time for icons to be added
+      Polymer.RenderStatus.afterNextRender(this, () => {
         this.fire('iron-iconset-added', this, {node: window});
       });
     },
