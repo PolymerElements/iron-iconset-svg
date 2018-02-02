@@ -1,0 +1,10 @@
+{
+  "name": "@polymer/iron-iconset-svg",
+  "private": true,
+  "description": "Manages a set of svg icons",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-iconset-svg.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt"
+}
