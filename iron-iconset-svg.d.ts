@@ -71,8 +71,8 @@ interface IronIconsetSvgElement extends Polymer.Element {
    * available).
    */
   useGlobalRtlAttribute: boolean|null|undefined;
-  created(): any;
-  attached(): any;
+  created(): void;
+  attached(): void;
 
   /**
    * Construct an array of all icon names in this iconset.
@@ -105,7 +105,7 @@ interface IronIconsetSvgElement extends Polymer.Element {
    *
    * @param element The element from which the icon is removed.
    */
-  removeIcon(element: Element|null): any;
+  removeIcon(element: Element|null): void;
 
   /**
    * Measures and memoizes the direction of the element. Note that this
@@ -117,7 +117,7 @@ interface IronIconsetSvgElement extends Polymer.Element {
   /**
    * When name is changed, register iconset metadata
    */
-  _nameChanged(): any;
+  _nameChanged(): void;
 
   /**
    * Create a map of child SVG elements by id.
