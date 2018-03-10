@@ -94,7 +94,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     created: function() {
-      this._meta = new Polymer.IronMeta({type: 'iconset', key: null, value: null});
+      var meta = this._meta = document.createElement('iron-meta');
+      if (typeof this._meta._enableProperties === "function") {
+        this._meta._enableProperties();
+      }
+      this._meta.type = 'iconset';
+      this._meta.key = null;
+      this._meta.value = null;
     },
 
     attached: function() {

@@ -30,6 +30,9 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "web-component-tester": "^6.0.0"
   },
+  "resolutions": {
+    "webcomponentsjs": "^1.0.0"
+  },
   "variants": {
     "1.x": {
       "dependencies": {
@@ -47,9 +50,24 @@
       "resolutions": {
         "webcomponentsjs": "^0.7"
       }
+    },
+    "polymer-1.x_iron-meta-2.x": {
+      "dependencies": {
+        "polymer": "Polymer/polymer#^1.9",
+        "iron-meta": "polymerelements/iron-meta#^2.0.0"
+      },
+      "devDependencies": {
+        "paper-styles": "polymerelements/paper-styles#^1.0.2",
+        "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
+        "iron-icon": "polymerelements/iron-icon#^1.0.0",
+        "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+        "web-component-tester": "^4.0.0"
+      },
+      "resolutions": {
+        "iron-meta": "^2.0.0",
+        "webcomponentsjs": "^0.7"
+      }
     }
-  },
-  "resolutions": {
-    "webcomponentsjs": "^1.0.0"
   }
 }
