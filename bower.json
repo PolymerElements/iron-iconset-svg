@@ -20,7 +20,7 @@
   "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#1.9 - 2",
-    "iron-meta": "PolymerElements/iron-meta#1 - 2"
+    "iron-meta": "PolymerElements/iron-meta#^2.0.0"
   },
   "devDependencies": {
     "iron-component-page": "polymerelements/iron-component-page#1 - 2",
