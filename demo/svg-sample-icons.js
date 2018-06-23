@@ -1,24 +1,15 @@
+import '../iron-iconset-svg.js';
+const $_documentContainer = document.createElement('template');
+$_documentContainer.setAttribute('style', 'display: none;');
 
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<link rel="import" href="../iron-iconset-svg.html">
-
-<iron-iconset-svg name="svg-sample-icons" size="100">
+$_documentContainer.innerHTML = `<iron-iconset-svg name="svg-sample-icons" size="100">
   <svg>
     <defs>
     <g id="codepen">
-      <path class="outer-ring"  d="M50,0C22.385,0,0,22.385,0,50c0,27.615,22.385,50,50,50c27.614,0,50-22.385,50-50C100,22.385,77.615,0,50,0z M50,91.789
+      <path class="outer-ring" d="M50,0C22.385,0,0,22.385,0,50c0,27.615,22.385,50,50,50c27.614,0,50-22.385,50-50C100,22.385,77.615,0,50,0z M50,91.789
       C26.958,91.789,8.212,73.042,8.212,50C8.212,26.958,26.958,8.212,50,8.212c23.042,0,41.788,18.747,41.788,41.789
       C91.788,73.042,73.042,91.789,50,91.789z"></path>
-      <path class="inner-logo"  d="M80.893,40.234c-0.006-0.039-0.016-0.076-0.022-0.115c-0.013-0.075-0.027-0.15-0.046-0.223
+      <path class="inner-logo" d="M80.893,40.234c-0.006-0.039-0.016-0.076-0.022-0.115c-0.013-0.075-0.027-0.15-0.046-0.223
       c-0.012-0.044-0.028-0.086-0.042-0.128c-0.021-0.065-0.042-0.13-0.068-0.193c-0.018-0.044-0.039-0.088-0.059-0.13
       c-0.028-0.06-0.057-0.119-0.09-0.175c-0.024-0.042-0.051-0.083-0.076-0.124c-0.036-0.055-0.073-0.109-0.112-0.161
       c-0.029-0.039-0.06-0.078-0.091-0.115c-0.042-0.049-0.086-0.098-0.132-0.143c-0.035-0.036-0.069-0.072-0.106-0.104
@@ -55,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     c0-0.92-0.02-1.834-0.059-2.743C93.771,25.929,97.251,22.195,100.001,17.942L100.001,17.942z"></path>
 
     <g id="youtube">
-      <path class="youtube"  d="M98.77,27.492c-1.225-5.064-5.576-8.799-10.811-9.354C75.561,16.818,63.01,15.993,50.514,16
+      <path class="youtube" d="M98.77,27.492c-1.225-5.064-5.576-8.799-10.811-9.354C75.561,16.818,63.01,15.993,50.514,16
       c-12.495-0.007-25.045,0.816-37.446,2.139c-5.235,0.557-9.583,4.289-10.806,9.354C0.522,34.704,0.5,42.574,0.5,50.001
       c0,7.426,0,15.296,1.741,22.509c1.224,5.061,5.572,8.799,10.807,9.352c12.399,1.32,24.949,2.145,37.446,2.14
       c12.494,0.005,25.047-0.817,37.443-2.14c5.234-0.555,9.586-4.291,10.81-9.352c1.741-7.213,1.753-15.083,1.753-22.509
@@ -66,4 +57,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </defs>
 
   </svg>
-</iron-iconset-svg>
+</iron-iconset-svg>`;
+
+document.head.appendChild($_documentContainer.content);
+
+/**
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+;
