@@ -11,11 +11,9 @@ found at http://polymer.github.io/PATENTS.txt
 
 import '../iron-iconset-svg.js';
 
-const $_documentContainer = document.createElement('template');
-$_documentContainer.setAttribute('style', 'display: none;');
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
-$_documentContainer.innerHTML =
-    `<iron-iconset-svg name="svg-sample-icons" size="100">
+const template = html`<iron-iconset-svg name="svg-sample-icons" size="100">
   <svg>
     <defs>
     <g id="codepen">
@@ -72,4 +70,4 @@ $_documentContainer.innerHTML =
   </svg>
 </iron-iconset-svg>`;
 
-document.head.appendChild($_documentContainer.content);
+document.head.appendChild(template.content);
