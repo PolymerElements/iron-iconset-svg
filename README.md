@@ -93,7 +93,7 @@ the tests and demo locally:
 
 ```sh
 git clone https://github.com/PolymerElements/iron-iconset-svg
-cd iron-iconset
+cd iron-iconset-svg
 npm install
 npm install -g polymer-cli
 ```
