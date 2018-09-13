@@ -14,7 +14,7 @@
   "devDependencies": {
     "webmat": "^0.2.0",
     "@polymer/iron-demo-helpers": "^3.0.1",
-    "@polymer/iron-icon": "^3.0.0-pre.25",
+    "@polymer/iron-icon": "^3.0.0-pre.26",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "wct-browser-legacy": "^1.0.1",
     "@polymer/gen-typescript-declarations": "^1.5.1"
@@ -29,6 +29,6 @@
   "author": "The Polymer Authors",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-meta": "^3.0.0-pre.25"
+    "@polymer/iron-meta": "^3.0.0-pre.26"
   }
 }
