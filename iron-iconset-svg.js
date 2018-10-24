@@ -50,7 +50,6 @@ import {dom} from '@polymer/polymer/lib/legacy/polymer.dom.js';
  */
 Polymer({
   is: 'iron-iconset-svg',
-  _template: null,
 
   properties: {
 
