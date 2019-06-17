@@ -50,6 +50,7 @@ import {dom} from '@polymer/polymer/lib/legacy/polymer.dom.js';
  */
 Polymer({
   is: 'iron-iconset-svg',
+  /** @override */
   _template: null,
 
   properties: {
@@ -83,10 +84,12 @@ Polymer({
     useGlobalRtlAttribute: {type: Boolean, value: false}
   },
 
+  /** @override */
   created: function() {
     this._meta = new IronMeta({type: 'iconset', key: null, value: null});
   },
 
+  /** @override */
   attached: function() {
     this.style.display = 'none';
   },
